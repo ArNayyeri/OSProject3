@@ -3,7 +3,6 @@ import copy
 
 def fcfs(tasks):
     t = copy.deepcopy(tasks)
-    t.sort(key=lambda x: x[1], reverse=True)
     s = 0
     print('First-Come, First-Served Start')
     for i in t:
@@ -29,7 +28,6 @@ def sjb(tasks):
 
 def rr(tasks, round_time):
     t = copy.deepcopy(tasks)
-    t.sort(key=lambda x: x[1], reverse=True)
     s = 0
     print('Round-Robin Start')
     while len(t) > 0:
