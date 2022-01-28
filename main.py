@@ -15,7 +15,7 @@ def fcfs(tasks):
 
 def sjb(tasks):
     t = copy.deepcopy(tasks)
-    t.sort(key=lambda x: (x[1], -x[2]), reverse=True)
+    t.sort(key=lambda x: (-x[2], x[1]), reverse=True)
     s = 0
     print('Shortest-Job-First Start')
     for i in t:
@@ -50,7 +50,7 @@ def hrrn(tasks):
     s = 1
     print('Highest Response Ratio Next Start')
     while len(t) > 0:
-        t.sort(key=lambda x: (x[1], ((s + x[2]) / x[2]), -tasks.index(x)), reverse=True)
+        t.sort(key=lambda x: (((s + x[2]) / x[2]), -tasks.index(x), x[1]), reverse=True)
         while t[0][2] > 0:
             t[0][2] -= 1
             print(str(s) + ': task ' + t[0][0] + ', remaining time -> ' + str(t[0][2]))
