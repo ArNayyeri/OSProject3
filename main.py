@@ -47,14 +47,14 @@ def rr(tasks, round_time):
 
 def hrrn(tasks):
     t = copy.deepcopy(tasks)
-    s = 1
+    s = 0
     print('Highest Response Ratio Next Start')
     while len(t) > 0:
         t.sort(key=lambda x: (((s + x[2]) / x[2]), -tasks.index(x), x[1]), reverse=True)
         while t[0][2] > 0:
             t[0][2] -= 1
-            print(str(s) + ': task ' + t[0][0] + ', remaining time -> ' + str(t[0][2]))
             s += 1
+            print(str(s) + ': task ' + t[0][0] + ', remaining time -> ' + str(t[0][2]))
         t.pop(0)
     print('Highest Response Ratio Next Finish\n\n')
 
